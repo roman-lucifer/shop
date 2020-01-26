@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="dcb2e518-9df5-4d62-aa3a-92cc86bf98e2" name="teli" url="http://shop.techno-logiya.info">
+        <fileTransfer host="18000.aqq.ru" port="21" rootFolder="/shop.techno-logiya.info">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
