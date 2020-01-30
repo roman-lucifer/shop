@@ -17,6 +17,7 @@ class CreateCategoryTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->char('category_name', 255)->default('no-name');
+            $table->char('code', 255)->nullable();
             $table->text('description')->nullable();
             $table->integer('parent_id')->default(0);
             $table->boolean('active')->default(false);

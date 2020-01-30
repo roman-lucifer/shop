@@ -1,3 +1,5 @@
+{{--@php(dd($menuItems))--}}
+
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark stylish-color scrolling-navbar  bg-transparent">
     <div class="container">
         <a href="/" class="navbar-brand cyan-text font-weight-bold">Shop</a>
@@ -7,26 +9,31 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features<span class="badge badge-primary ml-1">1</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/catalog">Catalog</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button">Options</a>
-                    <ul class="dropdown-menu shadow">
-                        <li class="dropdown-item"><a href="#" class="nav-link black-text">drop link</a></li>
-                        <li class="dropdown-item"><a href="" class="nav-link black-text">drop link</a></li>
-                        <li class="dropdown-item"><a href="" class="nav-link black-text">drop link</a></li>
-                        <li class="dropdown-item"><a href="" class="nav-link black-text">drop link</a></li>
-                        <div class="dropdown-divider"></div>
-                        <li class="dropdown-item"><a href="" class="nav-link black-text">drop link</a></li>
-                    </ul>
-                </li>
+                @foreach($menuItems as $menuItem)
+                    @if(@array_key_exists('sub', $menuItem))
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button">
+                                {{$menuItem['name']}}
+                            </a>
+                            <ul class="dropdown-menu shadow">
+                                @foreach($menuItem['sub'] as $subMenuItem)
+                                    <li class="dropdown-item">
+                                        <a href="{{$subMenuItem['link']}}" class="nav-link black-text">
+                                            {{$subMenuItem['name']}}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                    @else
+                        <li class="nav-item {{ \Illuminate\Support\Facades\Request::is($menuItem['link']) ? "active" : '' }}">
+                            <a class="nav-link" href="{{$menuItem['link']}}">
+                                {{$menuItem['name']}}
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                    @endif
+                @endforeach
             </ul>
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">

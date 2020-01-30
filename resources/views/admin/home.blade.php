@@ -36,6 +36,16 @@
                 <li class="active">
                     <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                 </li>
+                <h3 class="menu-title">Catalog</h3>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Catalog</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-puzzle-piece"></i><a href="/catalog/section/code">Choes</a></li>
+                        <li><i class="fa fa-plus"></i><a href="/admin/catalog/add/section/">Add section</a></li>
+                        <li><i class="fa fa-plus"></i><a href="/admin/catalog/add/product/">Add product</a></li>
+                    </ul>
+                </li>
+
                 <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Components</a>

@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
 
 class catalog_seeder extends Seeder
 {
@@ -14,8 +16,10 @@ class catalog_seeder extends Seeder
     {
         for ($i = 1000; $i > 0; $i--) {
 
+            $product = Str::random(10);
             $catalog[$i] = [
-                'product_name' => Str::random(10),
+                'product_name' => $product,
+                'code' => Str::lower($product),
                 'description' => Str::random(10),
                 'quantity' => rand(1, 100),
                 'category_id' => rand(1, 10),

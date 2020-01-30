@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
+
 
 class category_seeder extends Seeder
 {
@@ -13,9 +15,11 @@ class category_seeder extends Seeder
     {
         for ($i = 20; $i > 0; $i--) {
 
+            $code = Str::random(25);
             $category[$i] = [
-                'category_name' => Str::random(25),
-                'description' => Str::random(100),
+                'category_name' => $code,
+                'code' => Str::lower($code),
+                'description' => Str::random(125),
                 'parent_id' => rand(1, 9),
                 'active' => rand(0, 1)
             ];

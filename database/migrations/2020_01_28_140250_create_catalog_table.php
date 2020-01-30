@@ -17,11 +17,13 @@ class CreateCatalogTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->char('product_name', 255)->nullable();
+            $table->char('code', 255)->nullable();
             $table->text('description')->nullable();
             $table->integer('category_id')->default(0);
             $table->integer('primary_img')->nullable();
             $table->integer('quantity')->default(0);
             $table->boolean('top')->default(false);
+            $table->boolean('active')->default(true);
         });
     }
 
