@@ -13,3 +13,9 @@
 
 Route::get('/', 'HomePageController@index');
 Route::get('/catalog', 'CatalogController@index');
+
+Route::prefix('admin')->group(
+    function () {
+        Route::get('/', 'Admin\HomePageController@index');
+    }
+);
